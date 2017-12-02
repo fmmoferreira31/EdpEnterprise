@@ -23,7 +23,13 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-  <link href="main.css" rel="stylesheet">
+  <script src="alertify.min.js"></script>
+  <link rel="stylesheet" href="alertify.min.css" />
+  <!-- include a theme -->
+  <link rel="stylesheet" href="default.min.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -494,6 +500,7 @@
     ul li:hover {
       background: #ddd;
     }
+
     /* Style the close button */
 
     .close {
@@ -534,9 +541,12 @@
       float: left;
       font-size: 16px;
     }
-    input, select, textarea{
-    color: grey;
-}
+
+    input,
+    select,
+    textarea {
+      color: grey;
+    }
 
     /* Style the "Add" button */
 
@@ -579,7 +589,7 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	</button>
-              <a href="inicio.html" class="navbar-left"><img src="edp-logo.png" style="left: 0; width: 140px; height: 80px; size: 50%"></a>
+              <a href="inicio.html" class="navbar-left"><img src="back.png" style="left: 0; width: 80px; height: 80px; size: 50%"></a>
 
 
             </div>
@@ -603,23 +613,42 @@
                   <input type="text" id="myInput" placeholder="Task">
                   <span onclick="newElement()" class="addBtn">Add</span>
                 </div>
-
                 <ul id="myUL">
                   <li>Entregar Documentação Técnina do ENHCXPTO</li>
                 </ul>
               </div>
-              <button class="list-group-item justify-content-between">
+              <button type="button" class="list-group-item justify-content-between" data-toggle="collapse" data-target="#upcoming">
                 Upcoming
-                <span class="badge badge-default badge-pill">10</span>
+                <span class="badge badge-default badge-pill">0</span>
               </button>
-              <button class="list-group-item justify-content-between">
+              <div id="upcoming" class="collapse container">
+                <div id="myDIV" class="header">
+                  <h2 style="margin:5px">Add Upcoming Tasks</h2>
+                  <input type="text" id="myInputUp" placeholder="Task">
+                  <span onclick="newElementUp()" class="addBtn">Add</span>
+                </div>
+                <ul id="myULUp">
+                </ul>
+              </div>
+              <button type="button" class="list-group-item justify-content-between" data-toggle="collapse" data-target="#late">
                 Late
                 <span class="badge badge-default badge-pill">0</span>
               </button>
+              <div id="late" class="collapse container">
+                <div id="myDIV" class="header">
+                  <h2 style="margin:5px">Add Late Tasks</h2>
+                  <input type="text" id="myInputLate" placeholder="Task">
+                  <span onclick="newElementLate()" class="addBtn">Add</span>
+                </div>
+                <ul id="myULLate">
+                </ul>
+              </div>
             </ul>
           </div>
           <div class="col-md-6">
-            <img src="ot.png" style="width:500px;">
+            <div id="canvas-holder" style="width: 500px;">
+              <canvas id="chart-area" width="300" height="300" />
+            </div>
           </div>
         </div>
       </div>
@@ -734,6 +763,7 @@
         close[i].onclick = function() {
           var div = this.parentElement;
           div.style.display = "none";
+          alertify.success('Task Done!');
         }
       }
 
@@ -747,6 +777,7 @@
 
       // Create a new list item when clicking on the "Add" button
       function newElement() {
+        alertify.success('Task Created!')
         var li = document.createElement("li");
         var inputValue = document.getElementById("myInput").value;
         var t = document.createTextNode(inputValue);
@@ -768,9 +799,155 @@
           close[i].onclick = function() {
             var div = this.parentElement;
             div.style.display = "none";
+            alertify.success('Task Done!');
           }
         }
       }
+
+      function newElementUp() {
+        alertify.success('Task Created!')
+        var li = document.createElement("li");
+        var inputValue = document.getElementById("myInputUp").value;
+        var t = document.createTextNode(inputValue);
+        li.appendChild(t);
+        if (inputValue === '') {
+          alert("You must write something!");
+        } else {
+          document.getElementById("myULUp").appendChild(li);
+        }
+        document.getElementById("myInputUp").value = "";
+
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+            alertify.success('Task Done!');
+          }
+        }
+      }
+
+      function newElementLate() {
+        alertify.success('Task Created!')
+        var li = document.createElement("li");
+        var inputValue = document.getElementById("myInputLate").value;
+        var t = document.createTextNode(inputValue);
+        li.appendChild(t);
+        if (inputValue === '') {
+          alert("You must write something!");
+        } else {
+          document.getElementById("myULLate").appendChild(li);
+        }
+        document.getElementById("myInputLate").value = "";
+
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+            alertify.success('Task Done!');
+          }
+        }
+      }
+
+    </script>
+
+    <script>
+      window.chartColors = {
+        red: 'rgb(255, 99, 132)',
+        orange: 'rgb(255, 159, 64)',
+        yellow: 'rgb(255, 205, 86)',
+        green: 'rgb(75, 192, 192)',
+        blue: 'rgb(54, 162, 235)',
+        purple: 'rgb(153, 102, 255)',
+        grey: 'rgb(231,233,237)'
+      };
+
+      Chart.defaults.global.tooltips.custom = function(tooltip) {
+        // Tooltip Element
+        var tooltipEl = document.getElementById('chartjs-tooltip');
+
+        // Hide if no tooltip
+        if (tooltip.opacity === 0) {
+          tooltipEl.style.opacity = 0;
+          return;
+        }
+
+        // Set Text
+        if (tooltip.body) {
+          var total = 0;
+
+          // get the value of the datapoint
+          var value = this._data.datasets[tooltip.dataPoints[0].datasetIndex].data[tooltip.dataPoints[0].index].toLocaleString();
+
+          // calculate value of all datapoints
+          this._data.datasets[tooltip.dataPoints[0].datasetIndex].data.forEach(function(e) {
+            total += e;
+          });
+
+          // calculate percentage and set tooltip value
+          tooltipEl.innerHTML = '<h1>' + (value / total * 100) + '%</h1>';
+        }
+
+        // calculate position of tooltip
+        var centerX = (this._chartInstance.chartArea.left + this._chartInstance.chartArea.right) / 2;
+        var centerY = ((this._chartInstance.chartArea.top + this._chartInstance.chartArea.bottom) / 2);
+
+        // Display, position, and set styles for font
+        tooltipEl.style.opacity = 1;
+        tooltipEl.style.left = centerX + 'px';
+        tooltipEl.style.top = centerY + 'px';
+        tooltipEl.style.fontFamily = tooltip._fontFamily;
+        tooltipEl.style.fontSize = tooltip.fontSize;
+        tooltipEl.style.fontStyle = tooltip._fontStyle;
+        tooltipEl.style.padding = tooltip.yPadding + 'px ' + tooltip.xPadding + 'px';
+      };
+
+      var config = {
+        type: 'pie',
+        data: {
+          datasets: [{
+            data: [0, 10, 1],
+            backgroundColor: [
+              window.chartColors.red,
+              window.chartColors.orange,
+              window.chartColors.blue,
+            ],
+          }],
+          labels: [
+            "Late",
+            "Upcoming",
+            "Today"
+          ]
+        },
+        options: {
+          responsive: true,
+          legend: {
+            display: true,
+            labels: {
+              padding: 20
+            },
+          },
+          tooltips: {
+            enabled: false,
+          }
+        }
+      };
+
+      window.onload = function() {
+        var ctx = document.getElementById("chart-area").getContext("2d");
+        window.myPie = new Chart(ctx, config);
+      };
     </script>
     <!-- /container -->
 
