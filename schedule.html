@@ -8,7 +8,7 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+  <link rel="icon" href="edp-logo.png">
 
   <title>EDP Enterprise 1.0</title>
 
@@ -31,6 +31,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js" type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
   <script src="alertify.min.js"></script>
+  <script src="database.js"></script>
   <link rel="stylesheet" href="alertify.min.css" />
   <!-- include a theme -->
   <link rel="stylesheet" href="default.min.css" />
@@ -444,14 +445,14 @@
       padding: 5px 10px;
       position: relative;
     }
-    .required-field:after {
-    color: #d00;
-    content: "*";
-    position: absolute;
-    margin-left: 3px;
-    top: 10px;
-  }
 
+    .required-field:after {
+      color: #d00;
+      content: "*";
+      position: absolute;
+      margin-left: 3px;
+      top: 10px;
+    }
   </style>
 
 </head>
@@ -490,8 +491,8 @@
 					<li><a href="cursos.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Cursos</a></li>
 					<li><a href="media.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Calcular Média</a></li>
 					<li><a href="forum.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Fórum</a></li>-->
-                  </ul>
-                </li>
+              </ul>
+              </li>
               </ul>
 
             </div>
@@ -509,12 +510,12 @@
             </div>
             <div class="col-md-6">
               <div class='col-sm-6'>
-              <label for="sel0"></label>
-              <select class="form-control" id="sel0" style="width: 102px;" required>
+                <label for="sel0"></label>
+                <select class="form-control" id="sel0" style="width: 102px;" required>
                 <option value="Meeting">Meeting</option>
                 <option value="Call">Call</option>
               </select>
-            </div>
+              </div>
             </div>
           </div>
           <div class="row">
@@ -527,7 +528,7 @@
                   <div class='col-sm-6'>
                     <div class="form-group required-field">
                       <div class='input-group date' id='datetimepicker1'>
-                        <input id='date' type='text' class="form-control" placeholder="required"/>
+                        <input id='date' type='text' class="form-control" placeholder="required" />
                         <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -553,7 +554,7 @@
                   <div class='col-sm-6'>
                     <div class="form-group">
                       <div class='input-group date' id='datetimepicker2'>
-                        <input id='initial' type='text' class="form-control" placeholder="required"/>
+                        <input id='initial' type='text' class="form-control" placeholder="required" />
                         <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-time"></span>
                         </span>
@@ -581,7 +582,7 @@
                   <div class='col-sm-6'>
                     <div class="form-group">
                       <div class='input-group date' id='datetimepicker3'>
-                        <input id='final' type='text' class="form-control" placeholder="required"/>
+                        <input id='final' type='text' class="form-control" placeholder="required" />
                         <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-time"></span>
                         </span>
@@ -605,16 +606,16 @@
             </div>
             <div class="col-md-6">
               <div class='col-sm-6'>
-              <div class="form-group">
-                <label for="sel1">Rooms Available:</label>
-                <select class="form-control" id="sel1" style="width: 102px;" required>
+                <div class="form-group">
+                  <label for="sel1">Rooms Available:</label>
+                  <select class="form-control" id="sel1" style="width: 102px;" required>
                   <option value="Sintra">Sintra</option>
                   <option value="Geres">Geres</option>
                   <option value="Monsanto">Monsanto</option>
                   <option value="Lousa">Lousa</option>
                 </select>
+                </div>
               </div>
-            </div>
             </div>
           </div>
           <div class="row">
@@ -623,10 +624,10 @@
             </div>
             <div class="col-md-6">
               <div class='col-sm-6'>
-              <div class="form-group">
-                <textarea class="form-control" rows="1" id="person" style="width: 400px;"></textarea>
+                <div class="form-group">
+                  <textarea class="form-control" rows="1" id="person" style="width: 400px;"></textarea>
+                </div>
               </div>
-            </div>
             </div>
           </div>
         </div>
@@ -717,28 +718,70 @@
     </div>
 
     <script>
+      window.onload = function() {
+        loadData();
+      };
+    </script>
+
+    <script>
       $(document).ready(function() {
         $('button.btn-primary').click(function() {
           var meet, date, initial, final, room, person;
+          var actual = new Date();
+          var dd = actual.getDate();
+          var mm = actual.getMonth() + 1; //January is 0!
+          var yyyy = actual.getFullYear();
+
+          if (dd < 10) {
+            dd = '0' + dd
+          }
+
+          if (mm < 10) {
+            mm = '0' + mm
+          }
+          actual = dd + '/' + mm + '/' + yyyy;
           meet = $("#sel0").val();
           date = document.getElementById('date').value;
           initial = document.getElementById('initial').value;
           final = document.getElementById('final').value;
           room = $("#sel1").val();
           person = document.getElementById('person').value;
-          if(meet === "" || date === "" || initial === "" || final === "" || room === ""){
-            alertify.error('Campos obrigatórios em falta!')
-          }
-          else{
-          alertify.confirm('Schedule', 'Are you sure?', function() {
-          if(person === ""){
-            alertify.success(meet + ' scheduled ' + ' for ' + date + ' starting at ' + initial + ' and ending at ' + final + ' in ' + room)
+          if(Date.parse(date + " " + initial) > Date.parse(date + " " + final)){
+            alertify.error('Final hour need to be greater than initial hour!')
+          }else if (Date.parse(actual) > Date.parse(date)) {
+            alertify.error('Cannot schedule to a past date!')
           }else{
-            alertify.success(meet + ' scheduled ' + ' for ' + date + ' starting at ' + initial + ' and ending at ' + final + ' in ' + room + ' with ' + person)
+          if (meet === "" || date === "" || initial === "" || final === "" || room === "") {
+            alertify.error('Required fields missing!')
+          } else {
+            alertify.confirm('Schedule', 'Are you sure?', function() {
+              if (person === "") {
+                var text = meet + ' scheduled ' + ' for ' + date + ' starting at ' + initial + ' and ending at ' + final + ' in ' + room;
+                if(actual === date){
+                  addToday(text);
+                  loadData();
+                }
+                else{
+                  addUpcoming(text);
+                  loadData();
+                }
+                alertify.success(text);
+              } else {
+                var text = meet + ' scheduled ' + ' for ' + date + ' starting at ' + initial + ' and ending at ' + final + ' in ' + room + ' with ' + person;
+                if(actual === date){
+                  addToday(text);
+                  loadData();
+                }
+                else{
+                  addUpcoming(text);
+                  loadData();
+                }
+                alertify.success(text);
+              }
+            }, function() {
+              alertify.error('Cancel')
+            });
           }
-        }, function() {
-            alertify.error('Cancel')
-          });
           }
         });
       });

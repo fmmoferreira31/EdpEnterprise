@@ -8,7 +8,7 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+  <link rel="icon" href="edp-logo.png">
 
   <title>EDP Enterprise 1.0</title>
 
@@ -24,7 +24,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   <link href="main.css" rel="stylesheet">
-
+  <script src="alertifyjs/alertify.min.js"></script>
+  <script src="database.js"></script>
+  <link rel="stylesheet" href="alertifyjs/css/alertify.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -40,11 +42,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  <script type="text/javascript">
-    function naoImpl() {
-      alert("Funcionalidade não implementada");
-    }
-  </script>
+    <script type="text/javascript">
+      function notImpl(){
+          alertify.error("Functionality not implemented");
+      }
+      </script>
 
   <style>
     html {
@@ -722,7 +724,7 @@
                                   <div class="form-group">
                                     <input type="file" name="files[]" id="js-upload-files" multiple>
                                   </div>
-                                  <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+                                  <button onclick="notImpl()" type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
                                 </div>
                               </form>
 
@@ -784,7 +786,7 @@
                     <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Sound Record"><i class="fa fa-microphone"></i></a></li>
                     <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
                   </ul>
-                  <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+                  <button onclick="notImpl()" type="submit" class="btn btn-success green"><i class="fa fa-share"></i>Send</button>
                 </form>
               </div>
               <!-- Status Upload  -->
@@ -879,6 +881,16 @@
       </div>
     </div>
   </div>
+
+  <script>
+    window.onload = function() {
+      loadData();
+      alertify.confirm('Page of ENHC or PRJ', 'This page is not implemented, press OK to stay on the page, otherwise press Cancel', function() {
+      }, function() {
+        window.location.href = "inicio.html";
+      });
+    };
+  </script>
 
   <script>
     $(function() {
