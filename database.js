@@ -2,6 +2,15 @@ var today = {};
 var upcoming = {};
 var late = {};
 
+function loadTeste() {
+  today = {"Validar Estado do ENHCXPTO": "Validar Estado do ENHCXPTO"};
+  window.localStorage.setItem("today", JSON.stringify(today));
+  today = JSON.parse(window.localStorage.getItem('today'));
+  late = {"Entregar EFS do ENHCXPTO": "Entregar EFS do ENHCXPTO"};
+  window.localStorage.setItem("late", JSON.stringify(late));
+  late = JSON.parse(window.localStorage.getItem('late'));
+}
+
 function loadData() {
   if (window.localStorage.getItem("today") === null) {
     window.localStorage.setItem("today", JSON.stringify(today));
