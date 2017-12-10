@@ -23,19 +23,15 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-  <script src="alertifyjs/alertify.min.js"></script>
+  <script src="alertify.min.js"></script>
   <script src="database.js"></script>
-  <link rel="stylesheet" href="alertifyjs/css/alertify.min.css" />
+  <link rel="stylesheet" href="alertify.min.css" />
   <!-- include a theme -->
-  <link rel="stylesheet" href="alertifyjs/css/themes/default.min.css" />
+  <link rel="stylesheet" href="default.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script type="text/javascript">
-    function notImpl(){
-        alertify.error("Functionality not implemented");
-    }
-    </script>
+
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -497,7 +493,7 @@
     padding-right: 10px;
     margin-bottom: 0px;">User<span class="caret"></span></a>
                   <ul class="dropdown-menu" style="left: 450px;">
-                    <li><a onclick="notImpl()">Editar perfil</a></li>
+                    <li><a onclick="notImpl()" href="#">Editar perfil</a></li>
                     <li><a href="index.html">Sair</a></li>
                   </ul>
                 </li>
@@ -546,7 +542,7 @@
           </div>
           <div class="col-md-4" style="background-color:white;height: 280px;">
             <h2 style="text-align:center">Bugs Management</h2>
-            <p><a onclick="notImpl()"><img border="0" width="100" height="100" id="for" src="support.png" class="center"></a></p>
+            <p><a onclick="notImpl()" href="#"><img border="0" width="100" height="100" id="for" src="support.png" class="center"></a></p>
             <p style="text-align:center">Bugs: 1</p>
             <div class="round hollow text-center">
               <a href="#" id="addClass"><span class="glyphicon glyphicon-comment"></span> Live Chat </a>
@@ -633,6 +629,11 @@
       <script>
       window.onload = function() {
         loadData();
+
+        function notImpl(){
+            alertify.error("Functionality not implemented");
+        }
+
         Date.prototype.getWeek = function() {
             var onejan = new Date(this.getFullYear(), 0, 1);
             return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
