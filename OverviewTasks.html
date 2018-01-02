@@ -1,0 +1,371 @@
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="img/edp-logo.png">
+
+  <title>EDP Enterprise 1.0</title>
+
+
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script src="JS/alertify.min.js"></script>
+  <script src="JS/database.js"></script>
+  <link rel="stylesheet" href="Style/alertify.min.css" />
+  <!-- include a theme -->
+  <link rel="stylesheet" href="Style/default.min.css" />
+  <link href="Style/overview.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    var scale = 'scale(0.9)';
+    document.body.style.webkitTransform = // Chrome, Opera, Safari
+      document.body.style.msTransform = // IE 9
+      document.body.style.transform = scale; // General
+  </script>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div id="container">
+    <div id="demo">
+      <div class="container">
+        <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="
+    width: 44px;
+    height: 34px;
+    margin-top: 30px;">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</button>
+              <a href="home.html" class="navbar-left"><img src="img/back.png" style="left: 0; width: 80px; height: 80px; size: 50%"></a>
+
+
+            </div>
+            <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container-fluid -->
+        </nav>
+        <br><br><br><br>
+      </div>
+      <div class="jumbotron" id="ct1">
+        <div class="container">
+          <div class="col-md-6">
+            <ul class="list-group">
+              <button type="button" class="list-group-item justify-content-between" data-toggle="collapse" data-target="#today">
+                Today
+                <span id="to" class="badge badge-default badge-pill"></span>
+              </button>
+              <div id="today" class="collapse container">
+                <div id="myDIV" class="header">
+                  <h2 style="margin:5px">Add Today Tasks</h2>
+                  <input type="text" id="myInput" placeholder="Task">
+                  <span onclick="newElement()" class="addBtn">Add</span>
+                </div>
+                <ul id="myUL">
+                </ul>
+              </div>
+              <button type="button" class="list-group-item justify-content-between" data-toggle="collapse" data-target="#upcoming">
+                Upcoming
+                <span id="up" class="badge badge-default badge-pill"></span>
+              </button>
+              <div id="upcoming" class="collapse container">
+                <div id="myDIV" class="header">
+                  <h2 style="margin:5px">Add Upcoming Tasks</h2>
+                  <input type="text" id="myInputUp" placeholder="Task">
+                  <span onclick="newElementUp()" class="addBtn">Add</span>
+                </div>
+                <ul id="myULUp">
+                </ul>
+              </div>
+              <button type="button" class="list-group-item justify-content-between" data-toggle="collapse" data-target="#late">
+                Late
+                <span id="la" class="badge badge-default badge-pill">0</span>
+              </button>
+              <div id="late" class="collapse container">
+                <div id="myDIV" class="header">
+                  <h2 style="margin:5px">Add Late Tasks</h2>
+                  <input type="text" id="myInputLate" placeholder="Task">
+                  <span onclick="newElementLate()" class="addBtn">Add</span>
+                </div>
+                <ul id="myULLate">
+                </ul>
+              </div>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <div class="canvascss" id="canvas-holder" style="width: 500px;">
+              <canvas id="chart-area" width="300" height="300" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" style="">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4 pull-right" style="background-color:white;height: 280px;">
+            <div class="round hollow text-center">
+              <a href="#" id="addClass"><span class="glyphicon glyphicon-comment"></span> Live Chat </a>
+            </div>
+
+
+            <div style="z-index: 10;" class="popup-box chat-popup" id="qnimate">
+              <div class="popup-head">
+                <div class="popup-head-left pull-left"> ENHCXPTO</div>
+                <div class="popup-head-right pull-right">
+                  <div class="btn-group">
+                    <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
+            									   <i class="glyphicon glyphicon-cog"></i> </button>
+                    <ul role="menu" class="dropdown-menu pull-right">
+                      <li><a href="#">Media</a></li>
+                      <li><a href="#">Block</a></li>
+                      <li><a href="#">Clear Chat</a></li>
+                      <li><a href="#">Email Chat</a></li>
+                    </ul>
+                  </div>
+
+                  <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="glyphicon glyphicon-off"></i></button>
+                </div>
+              </div>
+              <div class="popup-messages">
+
+
+
+
+                <div class="direct-chat-messages">
+
+                  <div class="chat-box-single-line">
+                    <abbr class="timestamp">November 9th, 2017</abbr>
+                  </div>
+
+
+                  <!-- Message. Default to the left -->
+
+
+                  <!-- Message. Default to the left -->
+                  <div class="direct-chat-msg doted-border">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name pull-left">Edgar</span>
+                    </div>
+                    <!-- /.direct-chat-info -->
+
+                    <div class="direct-chat-text">
+                      Calendarizar uma reunião comigo para o dia de hoje com inicio as 16:00 e fim as 17:30 na Sala Gerês
+                    </div>
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-timestamp pull-right">3.36 PM</span>
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                </div>
+              </div>
+              <div class="popup-messages-footer">
+                <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40" name="message"></textarea>
+                <div class="btn-footer">
+                  <button class="bg_none"><i class="glyphicon glyphicon-film"></i> </button>
+                  <button class="bg_none"><i class="glyphicon glyphicon-camera"></i> </button>
+                  <button class="bg_none"><i class="glyphicon glyphicon-paperclip"></i> </button>
+                  <button class="bg_none pull-right"><i class="glyphicon glyphicon-thumbs-up"></i> </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(function() {
+        $("#addClass").click(function() {
+          $('#qnimate').addClass('popup-box-on');
+        });
+
+        $("#removeClass").click(function() {
+          $('#qnimate').removeClass('popup-box-on');
+        });
+      })
+
+      // Create a "close" button and append it to each list item
+      var myNodelist = document.getElementsByTagName("LI");
+      var i;
+      for (i = 0; i < myNodelist.length; i++) {
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        myNodelist[i].appendChild(span);
+      }
+
+      // Click on a close button to hide the current list item
+
+
+      // Add a "checked" symbol when clicking on a list item
+      var list = document.querySelector('ul');
+      list.addEventListener('click', function(ev) {
+        if (ev.target.tagName === 'LI') {
+          ev.target.classList.toggle('checked');
+        }
+      }, false);
+
+      init();
+      var t = Object.keys(today).length;
+      var u = Object.keys(upcoming).length;
+      var l = Object.keys(late).length;
+      window.chartColors = {
+        red: 'rgb(255, 99, 132)',
+        orange: 'rgb(255, 159, 64)',
+        yellow: 'rgb(255, 205, 86)',
+        green: 'rgb(75, 192, 192)',
+        blue: 'rgb(54, 162, 235)',
+        purple: 'rgb(153, 102, 255)',
+        grey: 'rgb(231,233,237)'
+      };
+
+      Chart.defaults.global.tooltips.custom = function(tooltip) {
+        // Tooltip Element
+        var tooltipEl = document.getElementById('chartjs-tooltip');
+        // Hide if no tooltip
+        if (tooltip.opacity === 0) {
+          tooltipEl.style.opacity = 0;
+          return;
+        }
+
+        // Set Text
+        if (tooltip.body) {
+          var total = 0;
+
+          // get the value of the datapoint
+          var value = this._data.datasets[tooltip.dataPoints[0].datasetIndex].data[tooltip.dataPoints[0].index].toLocaleString();
+
+          // calculate value of all datapoints
+          this._data.datasets[tooltip.dataPoints[0].datasetIndex].data.forEach(function(e) {
+            total += e;
+          });
+
+          // calculate percentage and set tooltip value
+          tooltipEl.innerHTML = '<h1>' + (value / total * 100) + '%</h1>';
+        }
+
+        // calculate position of tooltip
+        var centerX = (this._chartInstance.chartArea.left + this._chartInstance.chartArea.right) / 2;
+        var centerY = ((this._chartInstance.chartArea.top + this._chartInstance.chartArea.bottom) / 2);
+
+        // Display, position, and set styles for font
+        tooltipEl.style.opacity = 1;
+        tooltipEl.style.left = centerX + 'px';
+        tooltipEl.style.top = centerY + 'px';
+        tooltipEl.style.fontFamily = tooltip._fontFamily;
+        tooltipEl.style.fontSize = tooltip.fontSize;
+        tooltipEl.style.fontStyle = tooltip._fontStyle;
+        tooltipEl.style.padding = tooltip.yPadding + 'px ' + tooltip.xPadding + 'px';
+      };
+
+      var config = {
+        type: 'pie',
+        data: {
+          datasets: [{
+            data: [t, u, l],
+            backgroundColor: [
+              window.chartColors.blue,
+              window.chartColors.orange,
+              window.chartColors.red,
+            ],
+          }],
+          labels: [
+            "Today",
+            "Upcoming",
+            "Late"
+          ]
+        },
+        options: {
+          responsive: true,
+          legend: {
+            display: true,
+            labels: {
+              padding: 20
+            },
+          },
+          tooltips: {
+            enabled: false,
+          }
+        }
+      };
+    </script>
+
+    <script>
+      window.onload = function() {
+
+        loadData();
+
+        document.getElementById("to").innerHTML = todaySize();
+        document.getElementById("up").innerHTML = upcomingSize();
+        document.getElementById("la").innerHTML = lateSize();
+
+        var ctx = document.getElementById("chart-area").getContext("2d");
+        window.myPie = new Chart(ctx, config);
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function() {
+            alertify.success('Task Done!');
+            var div = this.parentElement;
+            var text = div.innerHTML.split("<");
+            var div2 = div.parentElement;
+            var div3 = div2.parentElement;
+            if (div3.id.toString() === "today") {
+              var key = text[0];
+              delTodayElm(key);
+              document.getElementById("to").innerHTML = todaySize();
+            }
+            if (div3.id.toString() === "upcoming") {
+              var key = text[0];
+              delUpcomingElm(key);
+              document.getElementById("up").innerHTML = upcomingSize();
+            }
+            if (div3.id.toString() === "late") {
+              var key = text[0];
+              delLateElm(key);
+              document.getElementById("la").innerHTML = lateSize();
+            }
+            div.style.display = "none";
+            reloadChart();
+          }
+        }
+      };
+    </script>
+</body>
+
+</html>

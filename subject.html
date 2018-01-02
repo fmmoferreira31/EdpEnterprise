@@ -1,0 +1,392 @@
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="img/edp-logo.png">
+
+  <title>EDP Enterprise 1.0</title>
+
+
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <link href="Style/subject.css" rel="stylesheet">
+  <script src="JS/alertify.min.js"></script>
+  <script src="JS/database.js"></script>
+  <link rel="stylesheet" href="Style/alertify.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    var scale = 'scale(0.9)';
+    document.body.style.webkitTransform = // Chrome, Opera, Safari
+      document.body.style.msTransform = // IE 9
+      document.body.style.transform = scale; // General
+  </script>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <script type="text/javascript">
+    function notImpl() {
+      alertify.error("Functionality not implemented");
+    }
+  </script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="demo">
+      <div class="container">
+        <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="
+    width: 44px;
+    height: 34px;
+    margin-top: 30px;">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</button>
+              <a href="home.html" class="navbar-left"><img src="img/back.png" style="left: 0; width: 80px; height: 80px; size: 50%"></a>
+
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+
+              <ul class="nav navbar-nav" style="margin-bottom: 0px;margin-top: 0px;margin-left: 70px;">
+                <!--
+					<li class="active"><a href="inicio.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Início</a></li>
+					<li><a href="cursos.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Cursos</a></li>
+					<li><a href="media.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Calcular Média</a></li>
+					<li><a href="forum.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Fórum</a></li>-->
+
+              </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container-fluid -->
+        </nav>
+        <br><br><br><br>
+      </div>
+      <div class="jumbotron" id="ct1">
+        <div class="container">
+          <div class="col-md-2" style="background-color: green;">
+            <p style="text-align:center; color: white;">Especificação Funcional</p>
+          </div>
+          <div class="col-md-2" style="background-color: green;">
+            <p style="text-align:center; color: white;">Orçamento Aprovado</p>
+            <p> </p>
+          </div>
+          <div class="col-md-2" style="background-color: green;">
+            <p style="text-align:center; color: white;">Planeamento de Realease</p>
+          </div>
+          <div class="col-md-2">
+            <p style="text-align:center;">Especificação Tecnica</p>
+          </div>
+          <div class="col-md-2">
+            <p style="text-align:center;">Testes e Qualidade</p>
+          </div>
+          <div class="col-md-2">
+            <p style="text-align:center;">Passagem a Produção</p>
+          </div>
+        </div>
+        <div class="container">
+          <div class="col-md-6">
+            <h2 style="text-align: center;">Informação</h2>
+            <p><b>Assunto:</b> Disponibilização de Dados para XPTO</p>
+            <p><b>Descrição:</b> Teste </p>
+            <p><b>Data Inicio:</b> 26/11/2017</p>
+            <p><b>Data Fim:</b> 12/12/2017</p>
+          </div>
+          <div class="col-md-6">
+            <h2 style="text-align: center;">Documentação</h2>
+            <div class="row">
+              <div class="col-md-6">
+                <p><b>Especificação Funcional:</b></p>
+              </div>
+              <div class="col-md-6">
+                <p>EF_ENHCXPTO.docx</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p><b>Orçamentação:</b></p>
+              </div>
+              <div class="col-md-6">
+                <p>O_ENHCXPTO.pdf</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p><b>Especificação Técnica:</b></p>
+              </div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Anexar</button>
+                <div id="myModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Anexar Documento</h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container">
+                          <div class="panel panel-default">
+                            <div class="panel-heading"><strong>Upload Files</strong></div>
+                            <div class="panel-body">
+
+                              <!-- Standar Form -->
+                              <h4>Select files from your computer</h4>
+                              <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+                                <div class="form-inline">
+                                  <div class="form-group">
+                                    <input type="file" name="files[]" id="js-upload-files" multiple>
+                                  </div>
+                                  <button onclick="notImpl()" type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+                                </div>
+                              </form>
+
+                              <!-- Drop Zone -->
+                              <h4>Or drag and drop files below</h4>
+                              <div class="upload-drop-zone" id="drop-zone">
+                                Just drag and drop files here
+                              </div>
+
+                              <!-- Progress Bar -->
+                              <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                  <span class="sr-only">60% Complete</span>
+                                </div>
+                              </div>
+
+                              <!-- Upload Finished -->
+                              <div class="js-upload-finished">
+                                <h3>Processed files</h3>
+                                <div class="list-group">
+                                  <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>EF_ENHCXPTO.docx</a>
+                                  <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>O_ENHCXPTO.pdf</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /container -->
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p><b>Testes:</b></p>
+              </div>
+              <div class="col-md-6">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="col-md-6">
+            <h2 style="text-align: center;">Comentários</h2>
+            <div class="widget-area no-padding blank">
+              <div class="status-upload">
+                <form>
+                  <textarea placeholder="Comente..."></textarea>
+                  <ul>
+                    <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Audio"><i class="fa fa-music"></i></a></li>
+                    <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera"></i></a></li>
+                    <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Sound Record"><i class="fa fa-microphone"></i></a></li>
+                    <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
+                  </ul>
+                  <button onclick="notImpl()" type="submit" class="btn btn-success green"><i class="fa fa-share"></i>Send</button>
+                </form>
+              </div>
+              <!-- Status Upload  -->
+            </div>
+            <!-- Widget Area -->
+          </div>
+          <div class="col-md-6">
+            <h2 style="text-align: center;">Inforamação Financeira</h2>
+            <p><b>Valor:</b> 50.000,00 €</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4 pull-right" style="background-color:white;height: 280px;">
+          <div class="round hollow text-center">
+            <a href="#" id="addClass"><span class="glyphicon glyphicon-comment"></span> Live Chat </a>
+          </div>
+
+
+          <div style="z-index: 10;" class="popup-box chat-popup popup-box-on" id="qnimate">
+            <div class="popup-head">
+              <div class="popup-head-left pull-left"> ENHCXPTO</div>
+              <div class="popup-head-right pull-right">
+                <div class="btn-group">
+                  <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
+            									   <i class="glyphicon glyphicon-cog"></i> </button>
+                  <ul role="menu" class="dropdown-menu pull-right">
+                    <li><a href="#">Media</a></li>
+                    <li><a href="#">Block</a></li>
+                    <li><a href="#">Clear Chat</a></li>
+                    <li><a href="#">Email Chat</a></li>
+                  </ul>
+                </div>
+
+                <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="glyphicon glyphicon-off"></i></button>
+              </div>
+            </div>
+            <div class="popup-messages">
+
+
+
+
+              <div class="direct-chat-messages">
+
+                <div class="chat-box-single-line">
+                  <abbr class="timestamp">November 9th, 2017</abbr>
+                </div>
+
+
+                <!-- Message. Default to the left -->
+
+
+                <!-- Message. Default to the left -->
+                <div class="direct-chat-msg doted-border">
+                  <div class="direct-chat-info clearfix">
+                    <span class="direct-chat-name pull-left">Edgar</span>
+                  </div>
+                  <!-- /.direct-chat-info -->
+
+                  <div class="direct-chat-text">
+                    Calendarizar uma reunião comigo para o dia de hoje com inicio as 16:00 e fim as 17:30 na Sala Gerês
+                  </div>
+                  <div class="direct-chat-info clearfix">
+                    <span class="direct-chat-timestamp pull-right">3.36 PM</span>
+                  </div>
+                  <!-- /.direct-chat-text -->
+                </div>
+                <!-- /.direct-chat-msg -->
+              </div>
+            </div>
+            <div class="popup-messages-footer">
+              <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40" name="message"></textarea>
+              <div class="btn-footer">
+                <button class="bg_none"><i class="glyphicon glyphicon-film"></i> </button>
+                <button class="bg_none"><i class="glyphicon glyphicon-camera"></i> </button>
+                <button class="bg_none"><i class="glyphicon glyphicon-paperclip"></i> </button>
+                <button class="bg_none pull-right"><i class="glyphicon glyphicon-thumbs-up"></i> </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      loadData();
+      alertify.confirm('Page of ENHC or PRJ', 'This page is not implemented, press OK to stay on the page, otherwise press Cancel', function() {}, function() {
+        window.location.href = "home.html";
+      });
+    };
+  </script>
+
+  <script>
+    $(function() {
+        $("#addClass").click(function() {
+          $('#qnimate').addClass('popup-box-on');
+        });
+
+        $("#removeClass").click(function() {
+          $('#qnimate').removeClass('popup-box-on');
+        });
+      })
+
+      +
+      function($) {
+        'use strict';
+
+        // UPLOAD CLASS DEFINITION
+        // ======================
+
+        var dropZone = document.getElementById('drop-zone');
+        var uploadForm = document.getElementById('js-upload-form');
+
+        var startUpload = function(files) {
+          console.log(files)
+        }
+
+        uploadForm.addEventListener('submit', function(e) {
+          var uploadFiles = document.getElementById('js-upload-files').files;
+          e.preventDefault()
+
+          startUpload(uploadFiles)
+        })
+
+        dropZone.ondrop = function(e) {
+          e.preventDefault();
+          this.className = 'upload-drop-zone';
+
+          startUpload(e.dataTransfer.files)
+        }
+
+        dropZone.ondragover = function() {
+          this.className = 'upload-drop-zone drop';
+          return false;
+        }
+
+        dropZone.ondragleave = function() {
+          this.className = 'upload-drop-zone';
+          return false;
+        }
+
+      }(jQuery);
+  </script>
+  <!-- /container -->
+
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="home_ficheiros/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>

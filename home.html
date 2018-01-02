@@ -1,0 +1,251 @@
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="img/edp-logo.png">
+
+  <title>EDP Enterprise 1.0</title>
+
+
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script src="JS/alertify.min.js"></script>
+  <script src="JS/database.js"></script>
+  <link rel="stylesheet" href="Style/alertify.min.css" />
+  <!-- include a theme -->
+  <link rel="stylesheet" href="Style/default.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link href="Style/home.css" rel="stylesheet">
+  <script type="text/javascript">
+    function notImpl() {
+      alertify.error("Functionality not implemented");
+    }
+  </script>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div id="container">
+    <div id="demo">
+      <div class="container">
+        <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="
+    width: 44px;
+    height: 34px;
+    margin-top: 30px;">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</button>
+              <a href="home.html" class="navbar-left"><img src="img/edpgif.gif" style="left: 0; width: 80px; height: 80px; size: 50%"></a>
+
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+
+              <ul class="nav navbar-nav" style="margin-bottom: 0px;margin-top: 0px;margin-left: 70px;">
+                <!--
+					<li class="active"><a href="inicio.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Início</a></li>
+					<li><a href="cursos.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Cursos</a></li>
+					<li><a href="media.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Calcular Média</a></li>
+					<li><a href="forum.html" style="margin-top: 0px; padding-top: 41px; padding-bottom: 31px;">Fórum</a></li>-->
+                <li style="left: 300px;"><img src="img/noti.png" style="width: 80px; height: 80px"></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right: 0px;padding-left: 0px;margin-left: 0px;left: 350px;padding-bottom: 5px;"><img src="img/useri.png" style="
+    margin-left: 0px;
+    padding-right: 10px;
+    margin-bottom: 0px;">User<span class="caret"></span></a>
+                  <ul class="dropdown-menu" style="left: 450px;">
+                    <li><a onclick="notImpl()" href="#">Editar perfil</a></li>
+                    <li><a href="index.html">Sair</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container-fluid -->
+        </nav>
+        <br><br><br><br>
+      </div>
+      <div class="jumbotron" id="ct1">
+        <div class="container">
+          <h1 style="text-align:center; color: black;">Bem vindo, TesteEDP!</h1>
+          <div class="row">
+            <div id="custom-search-input">
+              <div class="input-group col-md-12" style="padding-top: 25px">
+                <input id="search" type="text" class="  search-query form-control" placeholder="Search" />
+                <span class="input-group-btn">
+                                    <button onclick="search()" class="btn btn-danger" type="button">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" style="">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4" style="background-color:white;height: 280px;">
+            <h2 style="text-align:center">Overview Taks</h2>
+            <p><a href="OverviewTasks.html"><img border="0" width="100" height="100" id="tasks" src="img/tasks.png" class="center"></a></p>
+            <p id="today"></p>
+            <p id="upcoming"></p>
+            <p id="late"></p>
+          </div>
+          <div class="col-md-4" style="background-color:white;height: 280px;">
+            <h2 style="text-align:center">Schedule Call or Meeting</h2>
+            <p><a href="schedule.html"><img border="0" width="100" height="100" id="coll" src="img/schedule.png" class="center"></a></p>
+            <p id="week" style="text-align:center"></p>
+          </div>
+          <div class="col-md-4" style="background-color:white;height: 280px;">
+            <h2 style="text-align:center">Bugs Management</h2>
+            <p><a onclick="notImpl()" href="#"><img border="0" width="100" height="100" id="for" src="img/support.png" class="center"></a></p>
+            <p style="text-align:center">Bugs: 1</p>
+            <div class="round hollow text-center">
+              <a href="#" id="addClass"><span class="glyphicon glyphicon-comment"></span> Live Chat </a>
+            </div>
+
+
+            <div style="z-index: 10;" class="popup-box chat-popup" id="qnimate">
+              <div class="popup-head">
+                <div class="popup-head-left pull-left"> ENHCXPTO</div>
+                <div class="popup-head-right pull-right">
+                  <div class="btn-group">
+                    <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
+            									   <i class="glyphicon glyphicon-cog"></i> </button>
+                    <ul role="menu" class="dropdown-menu pull-right">
+                      <li><a href="#">Media</a></li>
+                      <li><a href="#">Block</a></li>
+                      <li><a href="#">Clear Chat</a></li>
+                      <li><a href="#">Email Chat</a></li>
+                    </ul>
+                  </div>
+
+                  <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="glyphicon glyphicon-off"></i></button>
+                </div>
+              </div>
+              <div class="popup-messages">
+
+
+
+
+                <div class="direct-chat-messages">
+
+                  <div class="chat-box-single-line">
+                    <abbr class="timestamp">November 9th, 2017</abbr>
+                  </div>
+
+
+                  <!-- Message. Default to the left -->
+
+
+                  <!-- Message. Default to the left -->
+                  <div class="direct-chat-msg doted-border">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name pull-left">Edgar</span>
+                    </div>
+                    <!-- /.direct-chat-info -->
+
+                    <div class="direct-chat-text">
+                      Calendarizar uma reunião comigo para o dia de hoje com inicio as 16:00 e fim as 17:30 na Sala Gerês
+                    </div>
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-timestamp pull-right">3.36 PM</span>
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <!-- /.direct-chat-msg -->
+                </div>
+              </div>
+              <div class="popup-messages-footer">
+                <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40" name="message"></textarea>
+                <div class="btn-footer">
+                  <button class="bg_none"><i class="glyphicon glyphicon-film"></i> </button>
+                  <button class="bg_none"><i class="glyphicon glyphicon-camera"></i> </button>
+                  <button class="bg_none"><i class="glyphicon glyphicon-paperclip"></i> </button>
+                  <button class="bg_none pull-right"><i class="glyphicon glyphicon-thumbs-up"></i> </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function search() {
+        var p = document.getElementById("search").value;
+        if (p === "ENHCXPTO") {
+          window.location.href = "subject.html";
+        } else {
+          alertify.error("ENHC or PRJ doesn't exists!");
+        }
+      }
+    </script>
+    <script>
+      $(function() {
+        $("#addClass").click(function() {
+          $('#qnimate').addClass('popup-box-on');
+        });
+
+        $("#removeClass").click(function() {
+          $('#qnimate').removeClass('popup-box-on');
+        });
+      })
+    </script>
+    <script>
+      window.onload = function() {
+        loadData();
+        Date.prototype.getWeek = function() {
+          var onejan = new Date(this.getFullYear(), 0, 1);
+          return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+        }
+
+        var weekNumber = (new Date()).getWeek();
+
+        var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var now = new Date();
+        document.getElementById("week").innerHTML = dayNames[now.getDay()] + ", " + " Week Number: " + weekNumber;
+
+        document.getElementById("today").innerHTML = "Today Tasks: " + todaySize();
+        document.getElementById("upcoming").innerHTML = "Upcoming Tasks: " + upcomingSize();
+        document.getElementById("late").innerHTML = "Late Tasks: " + lateSize();
+
+      };
+    </script>
+</body>
+
+</html>
